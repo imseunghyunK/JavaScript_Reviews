@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>step05_JSON.htmls</title>
+</head>
+
+<body>
+    <h3>JSON 학습</h3>
+
+    <script>
+        //json 배열
+        let datas = [{ "name": "유재석", "age": 40 },
+        { "name": "유재석2", "age": 30 }];
+
+        // console.log(datas);
+        //반복문으로 이름들만 출력
+        for (d in datas) {
+            console.log(datas[d].name);
+        }
+
+        console.log("*******************")
+        /* back end에서 응답되는 데이터 구조는 string
+        단 json으로 변환 가능한 string들은 JSON.parse() 함수로 변환
+        */
+        let data = '{"name":"유재석", "age":40}';
+        console.log(typeof (data));      //string
+        console.log(data.name);     //undefined
+
+        // 순수 문자열을 JSON(key로 value사용) 객체로 변환
+        data = JSON.parse(data);
+        console.log(data.name);     //유재석
+
+        console.log("*********미션**********")
+        let data2 = [
+            { "name": "유재석", "age": 40 },
+            { "name": "이영애", "age": 20 },
+            { "name": "김연아", "age": 50 },
+            { "name": "신동엽", "age": 49 },
+            { "name": "이영자", "age": 51 }
+        ];
+        //나이가 50대인 사람들 정보만 출력
+        //콘솔에 출력 : "이름은 몇 살" 형식
+        //console.log(data2);
+
+        for (d in data2) {
+            if (data2[d].age >= 50 && data2[d].age < 60) {
+                console.log(data2[d].name + "은" + " " + data2[d].age + "살");
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>

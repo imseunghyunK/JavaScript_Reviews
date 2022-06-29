@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>step04_JSON.html</title>
+</head>
+
+<body>
+    <h3>JSON & 동적 화면 구성</h3>
+
+    1. dom을 활용한 화면 동적 구성 <br>
+    2. script tag 내부에서 특정 tag 찾는 함수 : document.getElementById("id이름") <br>
+    3. div tag : 별도의 ui적 설정 없이는 기본적으로 육안으로 안보이는 tag <br>
+    4. div innerHTML 속성 : js에서 순수 문자열이 html tag 형식인 경우에 한해서
+    브라우저 html tag로 출력(렌더링, 브라우징) <br>
+    5. div innerText 속성 : js에서 표현하는 모든 데이터들을 단순 문자열로 처리 <br>
+
+    <hr>
+    이름 : <input type="text" id="name" value="hello"> <br>
+    출력 : <input type="text" id="printInfo">
+
+    <br>
+    <button onclick="myfun1()"> 클릭1 </button>
+    <button onclick="myfun2()"> 클릭2 </button>
+
+
+    <!-- JSON data 활용 -->
+    <button onclick="myfun3()"> 클릭3 </button>
+
+    <br>
+
+    <div id="dataView"></div>
+
+    <hr>
+    <img src="" width="50%" id="img1">
+
+
+    <script>
+        //JSON 포멧으로 데이터 구성 후 각 정보가 key로 value들 구븐해서 input tag들에 출력
+        function myfun3() {
+            let data = { "name": "윈터", "age": 21 };
+            document.getElementById("name").value = data.name;
+            document.getElementById("printInfo").value = '나이는 ' + data.age;
+        }
+
+
+
+        // 클릭2 클릭시에 클릭 1으로 생성된 textarea tag를 삭제해보기
+        // 이미지도 안보이게 처리
+        function myfun2() {
+            document.getElementById("dataView").innerHTML = '';
+            document.getElementById("printInfo").value = '';
+            document.getElementById("img1").src = '';
+        }
+
+        /* html 문서에서 id값이 name인 tag를 찾아서 값을 read
+            - html 문서(document)에서 id값이 name인 tag를 찾아서(getElementById("name")) 
+            값을 read(value 속성값)
+        */
+        function myfun1() {
+            let data = document.getElementById("name").value;
+            console.log(1 + " " + data);
+            document.getElementById("printInfo").value = data + ' world';
+            document.getElementById("dataView").innerHTML
+                = '<textarea id="txa" cols="30" rows="10">test</textarea>';
+            document.getElementById("img1").src = 'images/diwhtiad.png';
+        }
+    </script>
+
+</body>
+
+</html>
