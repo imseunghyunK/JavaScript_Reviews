@@ -21,11 +21,8 @@
         for (d in datas) {
             console.log(datas[d].name);
         }
-
-        console.log("*******************")
-        /* back end에서 응답되는 데이터 구조는 string
-        단 json으로 변환 가능한 string들은 JSON.parse() 함수로 변환
-        */
+        
+        //json으로 변환 가능한 string들은 JSON.parse() 함수로 변환
         let data = '{"name":"유재석", "age":40}';
         console.log(typeof (data));      //string
         console.log(data.name);     //undefined
